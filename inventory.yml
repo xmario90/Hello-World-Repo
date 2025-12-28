@@ -1,0 +1,23 @@
+all:
+  children:
+    localhost:
+      hosts:
+        spine1:
+          ansible_host: 172.100.100.101
+        spine2:
+          ansible_host: 172.100.100.102
+        leaf1:
+          ansible_host: 172.100.100.103
+        leaf2:
+          ansible_host: 172.100.100.104
+        leaf3:
+          ansible_host: 172.100.100.105
+        leaf4:
+          ansible_host: 172.100.100.106
+vars:
+  ansible_connection: network_cli
+  ansible_network_os: arista.eos.eos
+  ansible_user: admin
+  ansible_ssh_pass: admin
+  ansible_become: yes
+  ansible_become_method: enable

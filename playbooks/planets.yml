@@ -1,0 +1,17 @@
+
+#formatting is important....
+---
+- name: Testing debug
+  hosts: localhost
+  vars:
+   planets: ['Mercury', 'Venus','Earth', 'Mars', 'Jupiter' ,' Saturn','Uranus',' Neptune']
+  tasks:
+    - name: Hello world!
+      ansible.builtin.debug:
+        #msg : "{{ planets [2] }}"
+        # or could use different format
+        #  msg : "{{ planets.2 }}"
+        #
+        # or we can print the entire list
+        msg : "{{ planets  }}"
+        

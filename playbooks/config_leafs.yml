@@ -1,0 +1,26 @@
+---
+- name: Add VLAN to device
+  hosts: leaf1,leaf2
+  gather_facts: false
+
+  tasks:
+    - name: Add VLAN 10
+      arista.eos.eos_vlans:
+        config:
+          - name: "DMZ"
+            vlan_id: 10
+            state: active
+        state: merged
+
+- name: Create user
+  hosts: spine2
+  gather_facts: false
+
+  tasks:
+    - name: Create User
+      arista.eos.eos_user:
+        name: automator
+        nopassword: true
+        privilege: 15
+        role: network-admin
+        state: present

@@ -1,0 +1,13 @@
+---
+- name: Verify Connectivity
+  hosts: FABRIC
+  gather_facts: false
+  tasks:
+    - name: Get Device Version
+      arista.eos.eos_command:
+        commands: show version
+      register: output
+
+    - name: Print Version
+      debug:
+        msg: "{{ output.stdout[0] }}"

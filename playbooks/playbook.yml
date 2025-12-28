@@ -1,0 +1,15 @@
+---
+- name: Display variable
+  #hosts: leaf1          
+  hosts: 127.0.0.1          
+  #connection: local         
+  #gather_facts: false
+
+  vars:
+   message: "Hello World"
+
+  tasks:
+    - name: Display variable
+      ansible.builtin.debug:
+       #msg: "{{ message }}"
+       msg: "{{ vlan_id }}"
